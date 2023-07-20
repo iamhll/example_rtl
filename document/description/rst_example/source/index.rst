@@ -19,4 +19,4 @@ CONTENTS
    C12_template/index
    C13_versionControl/index
    C14_checkList/index
-   C15_howTo/index
+   C15_what's/index
