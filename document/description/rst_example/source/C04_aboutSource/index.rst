@@ -233,9 +233,70 @@ Hierarchy
       *  *cdc_rmd_cst_knl.v*:             logic to do cost calculation
       *  *cdc_rmd_cmp.v*:                 logic to do comparison
 
-#. The hierarchy of memory instantiations also have **three** levels, which are memory-wrapper level, instantiation level, and definition level.
+#. The hierarchy of memory instantiations also have **three** levels, which are memory-wrapper level, definition level, and instantiation level.
 
-   TODO: to be added
+   ::
+
+      <module_name>
+      └── <memroy_type>_<design_name>_buf_<content_name>.v
+             └── definitions
+                    └── instantiations
+
+   For example, one buffer which stores reference pixels is need in module cdc_rmd_ref.v, hierachy of which would be
+
+   ::
+
+      *cdc_rmd_ref.v*
+      └── *sram_sp_cdc_rmd_ref_buf_ref.v*
+             ├── `KNOB_LIB_BEHAVE
+             │      └── sram_sp_behave.v
+             ├── `KNOB_LIB_FPGA
+             │      └── FPGA_INST_SRAM_SP_CDC_RMD_REF_BUF_REF_1024X32.v
+             └── `KNOB_LIB_ASIC
+                    └── ASIC_INST_SRAM_SP_CDC_RMD_REF_BUF_REF_1024X32.v
+
+   Noting that modules in the instantiation level would be marked with the implementation platform, design, buffer content, and size.
+
+   Here are the detailed contents of *sram_sp_cdc_rmd_ref_buf_ref.v*
+
+   *  *sram_sp_cdc_rmd_ref_buf_ref.v*
+
+      overview
+
+      .. +++++++++++++++ uncommented to help the decision of width
+
+      .. image:: buf_full.png
+         :width: 785
+
+      \
+
+      .. +++++++++++++++ uncommented to help the decision of width
+
+      .. image:: buf_001.png
+         :width: 775
+
+      \
+
+      .. +++++++++++++++ uncommented to help the decision of width
+
+      .. image:: buf_051.png
+         :width: 775
+
+      \
+
+      .. +++++++++++++++ uncommented to help the decision of width
+
+      .. image:: buf_101.png
+         :width: 775
+
+      \
+
+      .. +++++++++++++++ uncommented to help the decision of width
+
+      .. image:: buf_151.png
+         :width: 1050
+
+      \
 
 
 Detailed Rules
