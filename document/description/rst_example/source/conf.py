@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'calculator'
+project = 'example_rtl'
 copyright = '2022, llhuang'
 author = 'llhuang'
 
